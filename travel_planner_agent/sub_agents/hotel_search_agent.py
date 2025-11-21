@@ -22,38 +22,13 @@ hotel_search_agent_instruction="""You are a specialized hotel reservation agent.
     3. The most convenient reservation.
      """
 
-
-
-
-
-
-    #instruction="""You are a specialized reservation service agent. Your only job is to use the
-    #google_search tool to find the reservations itinerary using the information provided by the user.
-    #The information provided by the user is: {user_input}
-
-    #Provide the reservation itinerary in a clear and concise format for the following options:
-    #1. Cheapest reservation.
-    #2. Fastest reservation.
-    #3. Most convenient reservation.
-    # """   
-
-
 hotel_search_agent = LlmAgent(
     name="HotelSearchAgent",
     model=Gemini(
         model="gemini-2.5-flash-lite",
         retry_options=retry_config
     ),
-    instruction="""You are a specialized hotel reservation agent. Your only job is to use the
-    google_search tool to find the hotel reservations using the information provided by the user.
-    
-
-    Provide the reservations in a clear and concise format for the following options:
-    
-    1. Cheapest reservation.
-    2. Fastest reservation.
-    3. Most convenient reservation.
-     """,
+    instruction=hotel_search_agent_instruction,
     tools=[google_search],
     output_key="hotel_reservations",  # The result of this agent will be stored in the session state with this key.
 )
