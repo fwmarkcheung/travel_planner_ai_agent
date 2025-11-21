@@ -1,19 +1,21 @@
 
 from google.adk.agents import LlmAgent
-from google.adk.models.google_llm import Gemini
-from google.adk.runners import InMemoryRunner
-from google.adk.sessions import InMemorySessionService
-from google.adk.tools import google_search, AgentTool, ToolContext
-from google.adk.code_executors import BuiltInCodeExecutor
-from google.genai import types
+from google.adk.tools import google_search
 
-
-retry_config=types.HttpRetryOptions(
-    attempts=5,  # Maximum retry attempts
-    exp_base=7,  # Delay multiplier
-    initial_delay=1,
-    http_status_codes=[429, 500, 503, 504], # Retry on these HTTP errors
-)
+# Handle imports for both script execution and module import
+try:
+    # Try relative import first (when used as a module)
+    from ..config import config
+  
+except ImportError:
+    # Fall back to absolute import (when run as a script)
+    import sys
+    import os
+    # Add the project root to sys.path to enable absolute imports
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    if project_root not in sys.path:
+        sys.path.insert(0, project_root)
+    from travel_planner_agent.config import config
 
 
 flight_search_agent_instruction="""You are a specialized flight service agent. Your only job is to find the flights itinerary using the information provided by the user.
@@ -26,26 +28,9 @@ flight_search_agent_instruction="""You are a specialized flight service agent. Y
     """
 
 
-retry_config=types.HttpRetryOptions(
-    attempts=5,  # Maximum retry attempts
-    exp_base=7,  # Delay multiplier
-    initial_delay=1,
-    http_status_codes=[429, 500, 503, 504], # Retry on these HTTP errors
-)
-
-model=Gemini(
-        model="gemini-2.5-flash-lite",
-        retry_options=retry_config
-        )
-
-
-
 flight_search_agent = LlmAgent(
     name="FlightSearchAgent",
-    model=Gemini(
-        model="gemini-2.5-flash-lite",
-        retry_options=retry_config
-    ),
+    model=config.model,
     instruction=flight_search_agent_instruction,
     tools=[google_search],
     output_key="flight_search_findings",  # The result of this agent will be stored in the session state with this key.

@@ -6,6 +6,7 @@ try:
         hotel_search_agent,
         aggregator_agent,
     )
+  
 except ImportError:
     # Fall back to absolute import (when run as a script)
     from sub_agents import (
@@ -13,6 +14,16 @@ except ImportError:
         hotel_search_agent,
         aggregator_agent,
     )
+
+from google.adk.agents import SequentialAgent, ParallelAgent
+from google.adk.runners import InMemoryRunner
+from google.adk.plugins.logging_plugin import (
+    LoggingPlugin,
+)  # <---- 1. Import the Plugin
+
+import logging
+import os
+import asyncio
 
 
 ''' 
@@ -30,33 +41,13 @@ sample_user_prompt = "Plan a trip from Toronto to Tokyo for 5 days for a family 
 
 
 
+# failed with the absolute path
 
-
-from google.adk.agents import Agent, SequentialAgent, ParallelAgent
-from google.adk.agents import LlmAgent
-from google.adk.models.google_llm import Gemini
-from google.adk.runners import InMemoryRunner
-from google.adk.sessions import InMemorySessionService
-from google.adk.tools import google_search, AgentTool, ToolContext
-from google.adk.code_executors import BuiltInCodeExecutor
-from google.genai import types
-
-from google.adk.plugins.logging_plugin import (
-    LoggingPlugin,
-)  # <---- 1. Import the Plugin
-
-import logging
-import os
-
-import asyncio
-
-
-
-# Clean up any previous logs
-for log_file in ["logger.log", "web.log", "tunnel.log"]:
-    if os.path.exists(log_file):
-        os.remove(log_file)
-        print(f"Cleaned up {log_file}")
+# # Clean up any previous logs
+# for log_file in ["logger.log", "web.log", "tunnel.log"]:
+#     if os.path.exists(log_file):
+#         os.remove(log_file)
+#         print(f"Cleaned up {log_file}")
 
 # Configure logging with DEBUG log level.
 logging.basicConfig(
