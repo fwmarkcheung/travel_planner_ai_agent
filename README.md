@@ -24,16 +24,25 @@ If I had more time I would ...
 ## Installation
 
 
-
 ### Running the Agent in ADK Web mode
 
 From the command line of the working directory execute the following command. 
 
 
-
 ```bash
 adk web
 ```
+
+### Running the Agent in script mode
+
+From the command line of the working directory execute the following command. 
+
+
+```bash
+py .\travel_planner_agent\agent.py
+```
+Since LoggingPlugin is configured, you will see execution trace in the stdout.  In addition, a logger.log is also created to capture events.
+
 
 ### Features
 
