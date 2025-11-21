@@ -5,29 +5,24 @@
 
 Planning trip manually is laborious because it requires significant time in looking up flight itineraries, hotel booking, weather in the destination, and etc
 
-Automation can streamline findings and recommend a trip plan.  This saves the time for the user to plain the trip.
+Automation can streamline findings and recommend a trip plan.  This saves the time for the user to plan the trip.
 
 ### Solution Statement
 
-Agents can automatically search flight itineraries, hotel booking, weather in the destination, and etc and help the user to plan the trip much more efficiently.  It can generate initial trip plan and give the user an idea the estimated cost for a cheap, a convenient, and luxary options.
-
-
+Agents can automatically search flight itineraries, hotel booking, weather in the destination, and etc.  It helps a user to plan the trip much more efficiently.  It generate a recommended trip plan giving the user an idea the estimated cost for a cheap, a convenient, and luxary options.
 
 ### Value Statement
 
 The travel planner agent reduced my time per trip planning, suggesting options for cheap, convenient, and luxary trip, and thus, help me to plan a trip much more efficiently.
 
 ### Enhancement
-
-If I had more time I would ...
+Due to the limitation of the agent, links to book the flights, hotels, and etc cannot be generated.  MCP could be a potiental solution.  However, it make the configuration for complicated since API_KEY will need to be configured for the connection. 
 
 ## Installation
-
 
 ### Running the Agent in ADK Web mode
 
 From the command line of the working directory execute the following command. 
-
 
 ```bash
 adk web
@@ -44,7 +39,7 @@ py .\travel_planner_agent\agent.py
 Since LoggingPlugin is configured, you will see execution trace in the stdout.  In addition, a logger.log is also created to capture events.
 
 
-### Features
+### Features demonstrated in this agent
 
 - Multi-agent system, including any combination of:
 		Agent powered by an LLM
@@ -53,6 +48,9 @@ Since LoggingPlugin is configured, you will see execution trace in the stdout.  
 
 - Tools:
 		built-in tools using Google Search
+
+- Session Management:
+  		Agent remembers user's conversations
 
 - Observability: Logging, Tracing, Metrics
 
