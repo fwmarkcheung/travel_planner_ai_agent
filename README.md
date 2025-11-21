@@ -20,6 +20,14 @@ Due to the limitation of the agent, links to book the flights, hotels, and etc c
 
 ## Installation
 
+### Setup the Google_API_KEY
+
+1. Get your API key
+
+If you don't have one already, create an API key using [Google AI Studio](https://aistudio.google.com/app/api-keys)
+
+2. Use it to setup the environment variable GOOGLE_API_KEY
+
 ### Running the Agent in ADK Web mode
 
 From the command line of the working directory execute the following command. 
