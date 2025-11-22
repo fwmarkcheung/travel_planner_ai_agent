@@ -4,6 +4,7 @@ try:
     from .sub_agents import (
         flight_search_agent,
         hotel_search_agent,
+        weather_search_agent,
         aggregator_agent,
     )
   
@@ -12,6 +13,7 @@ except ImportError:
     from sub_agents import (
         flight_search_agent,
         hotel_search_agent,
+        weather_search_agent,
         aggregator_agent,
     )
 
@@ -28,15 +30,15 @@ import asyncio
 
 ''' 
     This is a trip planner agent.  
-    Given a user plan request, it will plan the trip and provide the following information:
+    Given a user trip request, it plans a trip and provide the following information for the cheapest, most convenient, and most luxary options:
     1. Flight itinearies
     2. Hotel reservations
     3. Weather report to suggest the appropriate clothing
-    4. Visa requirement
-    5. Transporation recommendations
 
 '''
 
+# Need to provide the retunr date.  Otherwise, the weather_toolset will fail the call.
+# fail_weather_report_prompt="Plan a trip from Toronto to Hong Kong for 5 days for a family of 4.  Departure date is 1st December 2025."
 sample_user_prompt = "Plan a trip from Toronto to Tokyo for 5 days for a family of 4.  Departure date is 1st December 2025.  Return date is 5th December 2025."
 
 
@@ -59,7 +61,7 @@ logging.basicConfig(
 # The ParallelSearchTeam runs all its sub-agents simultaneously.
 parallel_planner_team = ParallelAgent(
     name="ParallelSearchTeam",
-    sub_agents=[flight_search_agent, hotel_search_agent],
+    sub_agents=[flight_search_agent, hotel_search_agent, weather_search_agent],
 )
 
 # This SequentialAgent defines the high-level workflow: run the parallel team first, then run the aggregator.

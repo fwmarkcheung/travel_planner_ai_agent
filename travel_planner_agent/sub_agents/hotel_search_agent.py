@@ -18,13 +18,16 @@ except ImportError:
     from travel_planner_agent.config import config
 
 
-hotel_search_agent_instruction="""You are a specialized hotel reservation agent. Your only job is to find the hotel reservations using the information provided by the user.
+hotel_search_agent_instruction="""
+    You are a specialized hotel reservation agent. Your only job is to find the hotel reservations using the information provided by the user.
 
-    You MUST ALWAYS use google_search tool to search and provide the reservations in a clear and concise format for the following options:
+    You MUST use google_search tool to search and provide the reservations in a clear and concise format for the following options:
     
     1. The Cheapest reservation.
     2. The most luxury reservation.
     3. The most convenient reservation.
+
+    You ONLY present the hotel reservations information.
      """
 
 hotel_search_agent = LlmAgent(

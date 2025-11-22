@@ -18,9 +18,10 @@ except ImportError:
     from travel_planner_agent.config import config
 
 
-flight_search_agent_instruction="""You are a specialized flight service agent. Your only job is to find the flights itinerary using the information provided by the user.
+flight_search_agent_instruction="""
+    You are a specialized flight service agent. Your only job is to find the flights itinerary using the information provided by the user.
 
-    You MUST ALWAYS use the google_search tool to provide the flight itinerary in a clear and concise format for the following options:
+    You MUST use the google_search tool to provide the flight itinerary in a clear and concise format for the following options:
     
     1. The cheapest flight.
     2. The fastest flight.

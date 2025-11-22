@@ -28,6 +28,28 @@ If you don't have one already, create an API key using [Google AI Studio](https:
 
 2. Use it to setup the environment variable GOOGLE_API_KEY
 
+### Setup the weather mcp server
+
+1. Install the weather MCP server locally
+
+```bash
+pip install mcp_weather_server
+```
+
+2. Run it in HTTP mode locally:
+
+```bash
+python -m mcp_weather_server --mode streamable-http --host 127.0.0.1 --port 8180
+
+```
+
+3. Double check the MCP server console output.  You should see info log messages similar to:
+
+
+![weather_mcp_server](weather_mcp_server.jpg)
+
+
+
 ### Running the Agent in ADK Web mode
 
 From the command line of the working directory execute the following command. 
@@ -42,7 +64,7 @@ From the command line of the working directory execute the following command.
 
 
 ```bash
-py .\travel_planner_agent\agent.py
+python .\travel_planner_agent\agent.py
 ```
 Since LoggingPlugin is configured, you will see execution trace in the stdout.  In addition, a logger.log is also created to capture events.
 
@@ -59,23 +81,6 @@ Since LoggingPlugin is configured, you will see execution trace in the stdout.  
 
 - Session Management:
   		Agent remembers user's conversations
-
-- Observability: Logging, Tracing, Metrics
-
-The following diagram shows how workflow and 
-Image:
-
-![multi-agents-architecture](multi-agents-architecture.jpg)
-
-### Features
-
-- Multi-agent system, including any combination of:
-		Agent powered by an LLM
-		Parallel agents
-		Sequential agents
-
-- Tools:
-		built-in tools using Google Search
 
 - Observability: Logging, Tracing, Metrics
 

@@ -17,15 +17,21 @@ except ImportError:
         sys.path.insert(0, project_root)
     from travel_planner_agent.config import config
 
-aggregator_agent_instruction="""Combine these two findings into a single executive summary:
+aggregator_agent_instruction="""
+    Combine these two findings into a single executive summary:
 
     **Flight itineraries:**
     {flight_search_findings}
     
     **Hotel Reservation:**
     {hotel_reservations}
+
+    **Destination Weather:**
+    {destination_weather}
+
     
-    Your summary should highlight the what the user should pay attention to."""     
+    Your summary should highlight the what the user should pay attention to.
+    """     
 
 
 # The AggregatorAgent runs *after* the parallel step to synthesize the results.
