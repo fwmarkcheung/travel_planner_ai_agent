@@ -83,6 +83,7 @@ Since LoggingPlugin is configured, you will see execution trace in the stdout.  
 
 - Tools:
 		built-in tools using Google Search
+		MCP Server for weather info lookup
 
 - Session Management:
   		Agent remembers user's conversations
