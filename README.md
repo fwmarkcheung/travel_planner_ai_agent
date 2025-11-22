@@ -8,9 +8,9 @@ Planning trip manually is laborious because it requires significant time in look
 
 ### Solution Statement
 
-Automation can streamline findings and recommend a comprehensive trip plan.  It sufficiently reduces time and effort needed for planning the trip.  
+Agents are an excellent solution for trip planning because the task is naturally multi-step, multi-domain, and context-dependent—exactly the kind of problem agents are designed to solve.
 
-Agents can automatically search flight itineraries, hotel booking, weather in the destination, and etc.  It helps a user to plan the trip much more efficiently.  It generates a recommended trip plan giving the user an idea the estimated cost for a cheap, a convenient, and luxary options.
+It can automatically search flight itineraries, hotel booking, weather in the destination, and etc.  It helps a user to plan the trip much more efficiently.  It generates a recommended trip plan giving the user an idea the estimated cost for a cheap, a convenient, and luxary options.
 
 It also summarizes the plan and provide friendly reminders to the user.
 
@@ -69,7 +69,7 @@ From the command line of the working directory execute the following command.
 
 
 ```bash
-python .\travel_planner_agent\agent.py
+python -m tests.test_agent
 ```
 Since LoggingPlugin is configured, you will see execution trace in the stdout.  In addition, a log file:logger.log is created in the root directory to capture all the details.
 
