@@ -37,8 +37,6 @@ import asyncio
 
 '''
 
-# Need to provide the retunr date.  Otherwise, the weather_toolset will fail the call.
-# fail_weather_report_prompt="Plan a trip from Toronto to Hong Kong for 5 days for a family of 4.  Departure date is 1st December 2025."
 sample_user_prompt = "Plan a trip from Toronto to Tokyo for 5 days for a family of 4.  Departure date is 1st December 2025.  Return date is 5th December 2025."
 
 
