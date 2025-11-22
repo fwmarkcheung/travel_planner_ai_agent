@@ -99,3 +99,11 @@ Since LoggingPlugin is configured, you will see execution trace in the stdout.  
 - ParallelSearchTeam - A search team comprised of the above agents.  It delegates a particular task to the corresponding agents to perform it in parallel.
 - AggregatorAgent - Summarize the recommendations from the above agents
 - TripPlannerAgent - A root agent works a high-level orchestrator to delegate the user request to the above agents 
+
+
+### TO-DO
+
+1. Create test cases and evaluation  
+2. Create user interface using grido
+3. Create docker compose to deploy agent and the MCP server together locally
+4. Deploy application to the cloud
