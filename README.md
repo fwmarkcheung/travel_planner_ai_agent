@@ -15,9 +15,6 @@ Agents can automatically search flight itineraries, hotel booking, weather in th
 
 The travel planner agent reduced my time per trip planning, suggesting options for cheap, convenient, and luxary trip, and thus, help me to plan a trip much more efficiently.
 
-### Enhancement
-Due to the limitation of the agent, links to book the flights, hotels, and etc cannot be generated.  MCP could be a potiental solution.  However, it make the configuration for complicated since API_KEY will need to be configured for the connection. 
-
 ## Installation
 
 ### Setup the Google_API_KEY
@@ -82,14 +79,15 @@ Since LoggingPlugin is configured, you will see execution trace in the stdout.  
 - Session Management:
   		Agent remembers user's conversations
 
-- Observability: Logging, Tracing, Metrics
+- Observability: Logging (using LoggingPlugin and the log file), Tracing (through adk web), Metrics (through adk web))
 
 ### Agent Architecture
 
 ![multi-agents-architecture](multi-agents-architecture.jpg)
 
-- FlightSearchAgent - LLM Agent uses google search tool to provide flight itineraries
-- HotelSearchAgent - LLM Agent uses google search tool to provide hotel booking recommendations
-- ParallelSearchTeam - create a search team and delegate the search task to the corresponding agents to perform the task in parallel
+- FlightSearchAgent - A LLM Agent uses google search tool to provide flight itineraries
+- HotelSearchAgent - A LLM Agent uses google search tool to provide hotel booking recommendations
+- WeatherSearchAgent - A LLM Agent use MCP server to provide weather summary for the trip.
+- ParallelSearchTeam - A search team comprised of the above agents.  It delegates a particular task to the corresponding agents to perform it in parallel.
 - AggregatorAgent - Summarize the recommendations from the above agents
-- TripPlannerAgent - a root agent works a high-level orchestrator to delegate the user request to the above agents 
+- TripPlannerAgent - A root agent works a high-level orchestrator to delegate the user request to the above agents 
