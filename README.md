@@ -38,6 +38,8 @@ pip install mcp_weather_server
 
 2. Run it in HTTP mode locally:
 
+This is an optional step.  If the weather mcp server is not running, the weather report and recommendation will be skipped.
+
 ```bash
 python -m mcp_weather_server --mode streamable-http --host 127.0.0.1 --port 8180
 
