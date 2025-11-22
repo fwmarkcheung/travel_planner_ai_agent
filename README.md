@@ -3,13 +3,16 @@
 
 ### Problem Statement
 
-Planning trip manually is laborious because it requires significant time in looking up flight itineraries, hotel booking, weather in the destination, and etc
+Planning trip manually is laborious because it requires significant time in looking up flight itineraries, hotel booking, weather in the destination, and etc using different websites.
 
-Automation can streamline findings and recommend a trip plan.  This saves the time for the user to plan the trip.
 
 ### Solution Statement
 
-Agents can automatically search flight itineraries, hotel booking, weather in the destination, and etc.  It helps a user to plan the trip much more efficiently.  It generate a recommended trip plan giving the user an idea the estimated cost for a cheap, a convenient, and luxary options.
+Automation can streamline findings and recommend a comprehensive trip plan.  It sufficiently reduces time and effort needed for planning the trip.  
+
+Agents can automatically search flight itineraries, hotel booking, weather in the destination, and etc.  It helps a user to plan the trip much more efficiently.  It generates a recommended trip plan giving the user an idea the estimated cost for a cheap, a convenient, and luxary options.
+
+It also summarizes the plan and provide friendly reminders to the user.
 
 ### Value Statement
 
@@ -55,6 +58,11 @@ From the command line of the working directory execute the following command.
 adk web
 ```
 
+The tool provides a detail execution trace and the events happened.  Here is a sample trace:
+
+
+![sample execution trace](sample_execution_trace.jpg)
+
 ### Running the Agent in script mode
 
 From the command line of the working directory execute the following command. 
@@ -63,7 +71,7 @@ From the command line of the working directory execute the following command.
 ```bash
 python .\travel_planner_agent\agent.py
 ```
-Since LoggingPlugin is configured, you will see execution trace in the stdout.  In addition, a logger.log is also created to capture events.
+Since LoggingPlugin is configured, you will see execution trace in the stdout.  In addition, a log file:logger.log is created in the root directory to capture all the details.
 
 
 ### Features demonstrated in this agent
