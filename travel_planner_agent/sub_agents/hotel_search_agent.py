@@ -18,7 +18,7 @@ except ImportError:
     from travel_planner_agent.config import config
 
 
-hotel_search_agent_instruction="""
+hotel_search_agent_instruction_old="""
     You are a specialized hotel reservation agent. Your only job is to find the hotel reservations using the information provided by the user.
 
     You MUST use google_search tool to search and provide the reservations in a clear and concise format for the following options:
@@ -30,6 +30,24 @@ hotel_search_agent_instruction="""
     You ONLY present the hotel reservations information.
      """
 
+
+
+hotel_search_agent_instruction='''
+
+    You are a specialized hotel reservation agent. Your only job is to find the hotel reservations using the information provided by the user.
+
+    
+    Follow these steps:
+    
+    1. Identify the departure city and the arrival city from the user's itinerary.
+    2. Identify the departure date and the return date of the user's stay.
+    3. You MUST use google_search tool to search and provide the reservations in a clear and concise format for the following options:
+        - The Cheapest reservation.
+        - The most luxury reservation.
+        - The most convenient reservation.
+
+    You ONLY return the hotel reservations from the search.
+    '''
 hotel_search_agent = LlmAgent(
     name="HotelSearchAgent",
     model=config.model,
