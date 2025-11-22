@@ -1,2 +1,4 @@
+# Test and develop using python 3.14
+
 google-adk==1.18.0
 mcp_weather_server
